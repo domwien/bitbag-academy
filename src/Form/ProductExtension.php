@@ -4,7 +4,26 @@ declare(strict_types=1);
 
 namespace App\Form;
 
-class ProductExtension
-{
+use App\Entity\Product\Product;
+use Sylius\Bundle\ProductBundle\Form\Type\ProductType;
+use Symfony\Component\Form\AbstractTypeExtension;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\FormBuilderInterface;
 
+class ProductExtension extends AbstractTypeExtension
+{
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder
+            ->add('color', ChoiceType::class, [
+                'label' => 'Color',
+                'choices' => Product::showColors(),
+                'required' => false,
+            ]);
+    }
+
+    public static function getExtendedTypes(): iterable
+    {
+        return [ProductType::class];
+    }
 }
