@@ -1,0 +1,9 @@
+<div class="ui basic segment">
+    <p>{{ product.shortDescription }}</p>
+    {% if product.color %}
+        <label>Color: </label>
+        <select class=" ui dropdown">
+            <option value="">{{ product.color }}</option>
+        </select>
+    {% endif %}
+</div>
