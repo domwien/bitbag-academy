@@ -1,0 +1,7 @@
+<div class="ui basic segment">
+    <p>{{ product.shortDescription }}</p>
+    {% if product.color and product.showColorOnSite == true %}
+        <label>{{ 'sylius.ui.color'|trans }}: </label><br>
+        <button class="ui button">{{ product.color }}</button>
+    {% endif %}
+</div>
