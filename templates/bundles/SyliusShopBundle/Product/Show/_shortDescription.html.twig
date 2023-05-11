@@ -1,9 +1,7 @@
 <div class="ui basic segment">
     <p>{{ product.shortDescription }}</p>
-    {% if product.color and product.showColorOnSite %}
+    {% if product.color and product.showColorOnSite == true %}
         <label>{{ 'sylius.ui.color'|trans }}: </label><br>
-        <select class=" ui dropdown" disabled>
-            <option value="">{{ product.color }}</option>
-        </select>
+        <button class="ui button">{{ product.color }}</button>
     {% endif %}
 </div>

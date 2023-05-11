@@ -20,8 +20,10 @@ class Product extends BaseProduct
     #[ORM\Column(name: "color", type: "string", nullable: true)]
     private $color;
 
-
+    /** @ORM\Column(name="showColorOnSite", type="boolean") */
+    #[ORM\Column(name: "showColorOnSite", type: "boolean")]
     private $showColorOnSite;
+
     public const COLOR_RED = 'Red';
     public const COLOR_GREEN = 'Green';
     public const COLOR_BLUE = 'Blue';
@@ -54,8 +56,6 @@ class Product extends BaseProduct
     {
         $this->showColorOnSite = $showColorOnSite;
     }
-
-
 
 
     protected function createTranslation(): ProductTranslationInterface
