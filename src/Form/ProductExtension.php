@@ -7,6 +7,7 @@ namespace App\Form;
 use App\Entity\Product\Product;
 use Sylius\Bundle\ProductBundle\Form\Type\ProductType;
 use Symfony\Component\Form\AbstractTypeExtension;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -18,6 +19,10 @@ class ProductExtension extends AbstractTypeExtension
             ->add('color', ChoiceType::class, [
                 'label' => 'Color',
                 'choices' => Product::showColors(),
+                'required' => false,
+            ])
+            ->add('showColorOnSite', CheckboxType::class, [
+                'label' => 'Show color on product site',
                 'required' => false,
             ]);
     }

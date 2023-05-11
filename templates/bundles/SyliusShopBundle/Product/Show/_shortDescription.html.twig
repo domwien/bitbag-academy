@@ -1,8 +1,8 @@
 <div class="ui basic segment">
     <p>{{ product.shortDescription }}</p>
-    {% if product.color %}
-        <label>Color: </label>
-        <select class=" ui dropdown">
+    {% if product.color and product.showColorOnSite %}
+        <label>{{ 'sylius.ui.color'|trans }}: </label><br>
+        <select class=" ui dropdown" disabled>
             <option value="">{{ product.color }}</option>
         </select>
     {% endif %}
